@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import java.util.*
 
-
+//pantalla de configuracion de idioma
 @Composable
 fun SettingsScreen(navController: NavController) {
     val context = LocalContext.current
@@ -26,9 +26,11 @@ fun SettingsScreen(navController: NavController) {
             .padding(16.dp),
         verticalArrangement = Arrangement.Center
     ) {
+        //botones para seleccionar idioma
         Text(text = stringResource(R.string.select_language), style = MaterialTheme.typography.titleLarge)
         Spacer(modifier = Modifier.height(16.dp))
         Row {
+            //boton para seleccionar ingles
             RadioButton(
                 selected = selectedLanguage == "en",
                 onClick = {
@@ -42,6 +44,7 @@ fun SettingsScreen(navController: NavController) {
         }
         Spacer(modifier = Modifier.height(8.dp))
         Row {
+            //boton para seleccionar español
             RadioButton(
                 selected = selectedLanguage == "es",
                 onClick = {
@@ -53,6 +56,7 @@ fun SettingsScreen(navController: NavController) {
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = stringResource(R.string.spanish))
         }
+        //boton para guardar cambios
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { navController.navigate("main") }) {
             Text(text = stringResource(R.string.save))
@@ -60,6 +64,7 @@ fun SettingsScreen(navController: NavController) {
     }
 }
 
+//guardar preferencia de idioma
 fun saveLanguagePreference(sharedPreferences: SharedPreferences, language: String) {
     with(sharedPreferences.edit()) {
         putString("language", language)
@@ -67,6 +72,7 @@ fun saveLanguagePreference(sharedPreferences: SharedPreferences, language: Strin
     }
 }
 
+//cambiar idioma de la aplicacion
 fun setLocale(context: Context, language: String) {
     val locale = Locale(language)
     Locale.setDefault(locale)

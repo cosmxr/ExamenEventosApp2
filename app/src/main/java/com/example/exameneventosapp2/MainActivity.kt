@@ -24,7 +24,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.exameneventosapp2.SettingsScreen
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,9 +41,11 @@ class MainActivity : ComponentActivity() {
 
                 Scaffold(
                     topBar = {
+                        //Barra de navegación, iconos de ajustes y vuelta a pagina anterior
                         TopAppBar(
                             title = { Text("") },
                             navigationIcon = {
+                                //condicional para ver si estamos en la pagina principal o no
                                 if (currentRoute != "main") {
                                     Row(
                                         modifier = Modifier.fillMaxWidth(),
@@ -71,6 +73,7 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) {
+                    //encargado de la navegacion
                     NavHost(navController = navController, startDestination = "main") {
                         composable("main") { MainScreen(navController, events) }
                         composable("addEvent") { AddEventScreen(navController, events) }
@@ -81,7 +84,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+//pantalla principal
 @Composable
 fun MainScreen(navController: NavController, events: List<Event>) {
     Column {
@@ -100,6 +103,7 @@ fun MainScreen(navController: NavController, events: List<Event>) {
                     .fillMaxSize()
                     .padding(top = 186.dp, start = 16.dp, end = 16.dp, bottom = 16.dp)
             ) {
+                //lista de eventos
                 items(events) { event ->
                     EventItem(event)
                     Spacer(modifier = Modifier.height(8.dp))
@@ -110,6 +114,7 @@ fun MainScreen(navController: NavController, events: List<Event>) {
     }
 }
 
+//item de cada evento
 @Composable
 fun EventItem(event: Event) {
     Card(
@@ -124,6 +129,7 @@ fun EventItem(event: Event) {
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {
+                //atributos del evento
                 Text(text = event.name, style = MaterialTheme.typography.titleLarge)
                 Text(text = event.description, style = MaterialTheme.typography.bodyMedium)
                 Text(text = "${event.price} €", style = MaterialTheme.typography.bodyMedium)

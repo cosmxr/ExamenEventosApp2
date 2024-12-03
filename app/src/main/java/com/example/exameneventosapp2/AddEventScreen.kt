@@ -8,6 +8,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
+//pantalla para añadir un evento
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddEventScreen(navController: NavController, events: MutableList<Event>) {
@@ -18,6 +19,7 @@ fun AddEventScreen(navController: NavController, events: MutableList<Event>) {
     var errorMessage by remember { mutableStateOf("") }
     val invalidPriceMessage = stringResource(R.string.invalid_price)
 
+    //textfields para completar los datos del evento
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -40,6 +42,7 @@ fun AddEventScreen(navController: NavController, events: MutableList<Event>) {
             value = price,
             onValueChange = { price = it },
             label = { Text(stringResource(R.string.event_price)) },
+            //control de errores de input incorrecto
             isError = errorMessage.isNotEmpty()
         )
         if (errorMessage.isNotEmpty()) {
@@ -59,9 +62,11 @@ fun AddEventScreen(navController: NavController, events: MutableList<Event>) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
+            //botones para guardar o cerrar la pantalla
             Button(onClick = {
                 val priceValue = price.toDoubleOrNull()
                 if (priceValue == null) {
+                    //se emite el mensaje de error
                     errorMessage = invalidPriceMessage
                 } else {
                     events.add(Event(name, description, priceValue, address))
