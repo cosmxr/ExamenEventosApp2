@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ExamenEventosApp2</string>
+    <string name="event_screen">Eventos</string>
+    <string name="invalid_price">Entrada incorrecta, intenta de nuevo</string>
+    <string name="close_event">Cerrar</string>
+    <string name="empty_event">Agregar un nuevo Evento</string>
+    <string name="add_event">Agregar Evento</string>
+    <string name="event_name">Nombre del Evento</string>
+    <string name="event_description">Descripción del Evento</string>
+    <string name="event_price">Precio del Evento</string>
+    <string name="event_address">Dirección del Evento</string>
+    <string name="save_event">Guardar Evento</string>
+    <string name="select_language">Seleccionar idioma</string>
+    <string name="save">Guardar</string>
+    <string name="settings">Configuración</string>
+    <string name="spanish">Español</string>
+    <string name="english">Inglés</string>
+</resources>
