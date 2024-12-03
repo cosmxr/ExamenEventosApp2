@@ -70,4 +70,4 @@ ExamenEventosApp2 es una aplicación móvil desarrollada en Kotlin utilizando Je
 3. Cambia el idioma de la aplicación desde la pantalla de configuración.
 4. Visualiza y gestiona los eventos desde la pantalla principal.
 
-link al repositorio: 
+link al repositorio: https://github.com/cosmxr/ExamenEventosApp2.git
